@@ -1,5 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import heroImage from "@/assets/hero.png"
 import { ArrowRight, BarChart3, BookOpen, CheckCircle, Clock, CreditCard, Users } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -9,44 +12,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/placeholder.svg?height=32&width=32"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
-            <span className="text-xl font-bold">EmpowerFund</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="outline" size="sm">
-                Log in
-              </Button>
-            </Link>
-            <Link href="/register">
-              <Button size="sm">Get Started</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header/>
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-muted/50 to-background">
+        <section className="w-full py-12 md:py-24 lg:py-28  bg-gradient-to-t from-[#fdcbf1]/80 via-[#fdcbf1]/70 to-[#e6dee9]">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
@@ -71,13 +40,14 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="mx-auto w-full max-w-[500px] aspect-video relative rounded-xl overflow-hidden shadow-xl">
+              <div className="mx-auto w-full max-w-[500px] ">
                 <Image
-                  src="/placeholder.svg?height=500&width=800"
+                  className="mx-auto"
+                  src={heroImage}
                   alt="Women entrepreneurs collaborating"
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  width={450}
+                  // height={400}
+                  // className="object-cover"
                   priority
                 />
               </div>
@@ -86,7 +56,7 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section className="w-full py-12 md:py-24 bg-muted/50">
+        <section className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -124,91 +94,6 @@ export default function Home() {
                   Access educational resources and tools designed to help your business thrive and scale.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Success Stories */}
-        <section className="w-full py-12 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Success Stories</h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  See how women entrepreneurs have transformed their businesses with our platform
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src="/placeholder.svg?height=60&width=60"
-                      alt="Sarah Johnson"
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover"
-                    />
-                    <div>
-                      <CardTitle>Sarah Johnson</CardTitle>
-                      <CardDescription>Tech Startup Founder</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    "EmpowerFund helped me secure the funding I needed to scale my tech startup. The mentorship program
-                    was invaluable for navigating challenges."
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src="/placeholder.svg?height=60&width=60"
-                      alt="Maria Rodriguez"
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover"
-                    />
-                    <div>
-                      <CardTitle>Maria Rodriguez</CardTitle>
-                      <CardDescription>Retail Business Owner</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    "The loan I received allowed me to open a second location. The business courses helped me improve my
-                    financial management skills."
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src="/placeholder.svg?height=60&width=60"
-                      alt="Aisha Patel"
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover"
-                    />
-                    <div>
-                      <CardTitle>Aisha Patel</CardTitle>
-                      <CardDescription>Healthcare Innovator</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    "Beyond funding, the network of women entrepreneurs I connected with through EmpowerFund has been
-                    crucial to my company's growth."
-                  </p>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
@@ -335,24 +220,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © 2023 EmpowerFund. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="/terms" className="text-sm text-muted-foreground hover:underline underline-offset-4">
-              Terms
-            </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:underline underline-offset-4">
-              Privacy
-            </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground hover:underline underline-offset-4">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }

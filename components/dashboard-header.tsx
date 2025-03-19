@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import samplePhoto from "@/assets/profile-sample.jpg"
+import logo from "@/assets/logo.png"
 import { MessageSquare, Settings } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -13,14 +15,14 @@ export function DashboardHeader() {
         <div className="flex items-center gap-2">
           <Link href="/dashboard" prefetch={false}>
             <Image
-              src="/placeholder.svg?height=32&width=32"
+              src={logo}
               alt="Logo"
               width={32}
               height={32}
               className="rounded-full"
             />
           </Link>
-          <span className="text-xl font-bold">EmpowerFund</span>
+          <span className="text-xl font-bold">Her$tack</span>
         </div>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/dashboard" prefetch={false} className="text-sm font-medium hover:underline underline-offset-4">
@@ -59,7 +61,7 @@ export function DashboardHeader() {
           </Link>
           <Link href="/dashboard/profile" prefetch={false}>
             <div className="relative h-8 w-8 rounded-full bg-muted cursor-pointer">
-              <Image src="/placeholder.svg?height=32&width=32" alt="User" fill className="rounded-full object-cover" />
+              <Image src={samplePhoto} alt="User" fill className="rounded-full" />
             </div>
           </Link>
         </div>

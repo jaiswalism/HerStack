@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { BarChart3, DollarSign, TrendingUp, Users } from "lucide-react"
 
+import { DashboardHeader } from "@/components/dashboard-header"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -13,76 +15,7 @@ export default function DashboardPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <a href="/dashboard">
-              <div className="relative h-8 w-8 rounded-full bg-muted">
-                <img src="/placeholder.svg?height=32&width=32" alt="Logo" className="rounded-full object-cover" />
-              </div>
-            </a>
-            <span className="text-xl font-bold">EmpowerFund</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="/dashboard" className="text-sm font-medium hover:underline underline-offset-4">
-              Dashboard
-            </a>
-            <a href="/dashboard/loans" className="text-sm font-medium hover:underline underline-offset-4">
-              Loans
-            </a>
-            <a href="/dashboard/mentorship" className="text-sm font-medium hover:underline underline-offset-4">
-              Mentorship
-            </a>
-            <a href="/dashboard/learning" className="text-sm font-medium hover:underline underline-offset-4">
-              Learning
-            </a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <span className="sr-only">Messages</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </Button>
-            <a href="/dashboard/settings">
-              <Button variant="ghost" size="icon">
-                <span className="sr-only">Settings</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-              </Button>
-            </a>
-            <a href="/dashboard/profile">
-              <div className="relative h-8 w-8 rounded-full bg-muted cursor-pointer">
-                <img src="/placeholder.svg?height=32&width=32" alt="User" className="rounded-full object-cover" />
-              </div>
-            </a>
-          </div>
-        </div>
-      </header>
+      <DashboardHeader/>
       <div className="container flex-1 items-start md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
         <aside className="fixed top-16 z-30 -ml-2 hidden h-[calc(100vh-4rem)] w-full shrink-0 md:sticky md:block">
           <div className="h-full py-6 pr-6 lg:py-8">
